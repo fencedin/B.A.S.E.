@@ -1,6 +1,29 @@
+<div class="container">
+    <div class = "navbar navbar-default navbar-fixed-top">
+      <p class="navbar-text pull-left">BaseLogo</p>
+      <a href="/" class="navbar-text pull-right">Login</a>
+    </div><br><br><br>
+  </div>
+
+
+
 <h1>B.A.S.E.</h1>
 <hr>
 
-<h3>Something</h3>
+<h3>All shires in the Kingdom</h3>
+
+<ul>
+  <% @shires.each do |shire| %>
+    <li>
+      <a href="/shires/<%= shire.slug%>"><%= shire.name %></a>
+    </li>
+  <% end %>
+</ul>
 
 <hr>
+<%= render('layouts/errors', object: @shire) %>
+
+<form class="form-inline" action="/shires/" method="post">
+  <input class="form-control" name="shire[name]" type="text" placeholder="Name your Shire...">
+  <button type="submit" class ="btn btn-primary">New Shire</button>
+</form>

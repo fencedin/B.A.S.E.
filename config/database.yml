@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: base_development
+
+test:
+  adapter: postgresql
+  database: base_test
+
+production:
+  adapter: postgresql
+  database: base_production

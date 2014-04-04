@@ -1,0 +1,9 @@
+= Battle Against Soldiers Epicodus
+
+* user will start with a base
+* base will have soldiers
+* soldiers can attack other bases and have a rest timer
+* users will get money over time and from attacking
+* users will be able to buy soldiers
+* upgarade soldiers/base
+* enemies attack the user

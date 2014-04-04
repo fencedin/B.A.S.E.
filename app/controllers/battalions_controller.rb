@@ -18,6 +18,8 @@ class BattalionsController < ApplicationController
     elsif params[:battalion].include?("wizard") && @shire.gold >= 300
       @battalion.update(params[:battalion])
       @shire.update({gold: @shire.gold-300})
+    elsif params[:battalion].include?("gold")
+      @shire.update({gold: @shire.gold+100})
     end
     redirect_to "/shires/#{@shire.slug}"
   end

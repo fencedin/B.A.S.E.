@@ -2,7 +2,7 @@
   <div class = "navbar navbar-default navbar-fixed-top">
     <a href="/" class="navbar-text pull-left glyphicon glyphicon-flag">B.A.S.E.</a>
     <p class="navbar-text pull-left"> Level </p>
-    <p class="navbar-text pull-left"> Gold <%= @shire.gold %>g<p>
+    <p class="navbar-text pull-left"> <span class="glyphicon glyphicon-copyright-mark"></span> <%= @shire.gold %><p>
     <a href="/" class="navbar-text pull-right">userName</a>
   </div><br><br><br>
 </div>
@@ -30,36 +30,36 @@
 <form style ='display:inline;' action="/shires/<%= @shire.slug %>/battalion/<%= @battalion.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
   <input name="battalion[tower]" type="hidden" value="<%= @battalion.tower + 1%>">
-  <button type="submit" class ="btn btn-default glyphicon glyphicon-tower" title="Towers"> 100g</button>
+  <button type="submit" class ="btn btn-default glyphicon glyphicon-tower" title="Towers"> <span class="glyphicon glyphicon-copyright-mark"></span>100</button>
 </form>
 
 <form style ='display:inline;' action="/shires/<%= @shire.slug %>/battalion/<%= @battalion.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
   <input name="battalion[footman]" type="hidden" value="<%= @battalion.footman + 1%>">
-  <button type="submit" class ="btn btn-default glyphicon glyphicon-user" title="Footmen"> 10g</button>
+  <button type="submit" class ="btn btn-default glyphicon glyphicon-user" title="Footmen"> <span class="glyphicon glyphicon-copyright-mark"></span>10</button>
 </form>
 
 <form style ='display:inline;' action="/shires/<%= @shire.slug %>/battalion/<%= @battalion.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
   <input name="battalion[archer]" type="hidden" value="<%= @battalion.archer + 1%>">
-  <button type="submit" class ="btn btn-default glyphicon glyphicon-screenshot" title="Archers"> 25g</button>
+  <button type="submit" class ="btn btn-default glyphicon glyphicon-screenshot" title="Archers"> <span class="glyphicon glyphicon-copyright-mark"></span>25</button>
 </form>
 
 <form style ='display:inline;' action="/shires/<%= @shire.slug %>/battalion/<%= @battalion.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
   <input name="battalion[knight]" type="hidden" value="<%= @battalion.knight + 1%>">
-  <button type="submit" class ="btn btn-default glyphicon glyphicon-flash" title="Knights"> 50g</button>
+  <button type="submit" class ="btn btn-default glyphicon glyphicon-flash" title="Knights"> <span class="glyphicon glyphicon-copyright-mark"></span>50</button>
 </form>
 
 <form style ='display:inline;' action="/shires/<%= @shire.slug %>/battalion/<%= @battalion.id %>" method="post">
   <input name="_method" type="hidden" value="patch">
   <input name="battalion[wizard]" type="hidden" value="<%= @battalion.wizard + 1%>">
-  <button type="submit" class ="btn btn-default glyphicon glyphicon-fire" title="Wizards"> 300g</button>
+  <button type="submit" class ="btn btn-default glyphicon glyphicon-fire" title="Wizards"> <span class="glyphicon glyphicon-copyright-mark"></span>300</button>
 </form>
 </div>
 
 <br><br>
-<h5>Attack</h5>
+<h5>Battlefield</h5>
 <form class="form-inline" action="/shires/<%= @shire.slug %>/attack" method="post">
   <input name="_method" type="hidden" value="patch">
   <select class="form-control" name="attack[:slug]" type="text">
@@ -67,12 +67,18 @@
     <option value="<%= shire_to_attack.slug %>" ><%= shire_to_attack.name %></option>
   <% end %>
   </select>
-  <button type="submit" class ="btn btn-default">Attack!</button>
+  <button type="submit" class ="btn btn-success">Attack!</button>
 </form>
 
-<br><br>
-<h5>Mine</h5>
+<br>
+<h5>Tavern</h5>
+<form class="form-inline" action="/shires/<%= @shire.slug %>/mine" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input class="form-control" name="battalion[:gold]" type="hidden" value="100">
+  <button type="submit" class ="btn btn-warning">Do quest for <span class="glyphicon glyphicon-copyright-mark"></span></button>
+</form>
 
+<br><br><br>
 <hr>
  <a href="/shires/<%= @shire.slug %>" data-method="delete" rel="nofollow" data-confirm="You're About to MURDER all your citizens Forever!!! Are you sure you can go through with this?!!"><button class ="btn btn-danger">Remove your Shire Forever</button></a>
 </div>

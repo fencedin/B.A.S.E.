@@ -1,9 +1,9 @@
 = Battle Against Soldiers Epicodus
 
 * user will start with a base
-* base will have infantry
+* users will be able to buy infantry
 * infantry can attack other bases and have a rest timer
 * users will get money over time and from attacking
-* users will be able to buy infantry
+* users can mine to produce income
 * upgarade infantry/base
 * enemies attack the user

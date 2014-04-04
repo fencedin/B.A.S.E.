@@ -1,14 +1,77 @@
 <div class="container">
-    <div class = "navbar navbar-default navbar-fixed-top">
-      <p class="navbar-text pull-left">BaseLogo</p>
-      <p class="navbar-text pull-left"> Level: </p>
-      <p class="navbar-text pull-left"> Gold: <p>
-      <a href="/" class="navbar-text pull-right">userName</a>
-    </div><br><br><br>
-  </div>
+  <div class = "navbar navbar-default navbar-fixed-top">
+    <a href="/" class="navbar-text pull-left glyphicon glyphicon-flag">B.A.S.E.</a>
+    <p class="navbar-text pull-left"> Level </p>
+    <p class="navbar-text pull-left"> Gold <%= @shire.gold %>g<p>
+    <a href="/" class="navbar-text pull-right">userName</a>
+  </div><br><br><br>
+</div>
 
 
-<h1><%= @shire.name %></h1>
+<h1>The state of <%= @shire.name %></h1>
+<div class="col-md-8">
+  <br>
+  <h3>Battalion Data</h3>
+<div class="btn-group" >
+  <button type="button" class="btn btn-default glyphicon glyphicon-tower" title="Towers"> x <%= @battalion.tower %></button>
+  <button type="button" class="btn btn-default glyphicon glyphicon-user" title="Footmen"> x <%= @battalion.footman %></button>
+  <button type="button" class="btn btn-default glyphicon glyphicon-screenshot" title="Archers"> x <%= @battalion.archer %></button>
+  <button type="button" class="btn btn-default glyphicon glyphicon-flash" title="Knights"> x <%= @battalion.knight %></button>
+  <button type="button" class="btn btn-default glyphicon glyphicon-fire" title="Wizards"> x <%= @battalion.wizard %></button>
+</div>
+
+
 <hr>
-<p>gold: <%= @shire.gold %></p>
+
+<h3>Actions</h3>
+<h5>Train</h5>
+<em>Click to add unit to the que.</em>
+
+<br>
+<div class="form-inline btn-group">
+<form style ='display:inline;' action="/shires/<%= @shire.slug %>/battalion/<%= @battalion.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input name="battalion[tower]" type="hidden" value="<%= @battalion.tower + 1%>">
+  <button type="submit" class ="btn btn-default glyphicon glyphicon-tower" title="Towers"> 100g</button>
+</form>
+
+<form style ='display:inline;' action="/shires/<%= @shire.slug %>/battalion/<%= @battalion.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input name="battalion[footman]" type="hidden" value="<%= @battalion.footman + 1%>">
+  <button type="submit" class ="btn btn-default glyphicon glyphicon-user" title="Footmen"> 10g</button>
+</form>
+
+<form style ='display:inline;' action="/shires/<%= @shire.slug %>/battalion/<%= @battalion.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input name="battalion[archer]" type="hidden" value="<%= @battalion.archer + 1%>">
+  <button type="submit" class ="btn btn-default glyphicon glyphicon-screenshot" title="Archers"> 25g</button>
+</form>
+
+<form style ='display:inline;' action="/shires/<%= @shire.slug %>/battalion/<%= @battalion.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input name="battalion[knight]" type="hidden" value="<%= @battalion.knight + 1%>">
+  <button type="submit" class ="btn btn-default glyphicon glyphicon-flash" title="Knights"> 50g</button>
+</form>
+
+<form style ='display:inline;' action="/shires/<%= @shire.slug %>/battalion/<%= @battalion.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <input name="battalion[wizard]" type="hidden" value="<%= @battalion.wizard + 1%>">
+  <button type="submit" class ="btn btn-default glyphicon glyphicon-fire" title="Wizards"> 300g</button>
+</form>
+</div>
+
+
+
+<br><br>
+<h5>Attack</h5>
+
+<br><br>
+<h5>Mine</h5>
+
+<hr>
  <a href="/shires/<%= @shire.slug %>" data-method="delete" rel="nofollow" data-confirm="You're About to MURDER all your citizens Forever!!! Are you sure you can go through with this?!!"><button class ="btn btn-danger">Remove your Shire Forever</button></a>
+</div>
+<div class="col-md-4 que">
+<h3>Event Que</h3>
+<hr>
+</div>

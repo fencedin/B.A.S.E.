@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404172155) do
+ActiveRecord::Schema.define(version: 20140404193225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "battalions", force: true do |t|
-    t.integer  "footmen"
+    t.integer  "footman"
     t.integer  "archer"
-    t.integer  "knights"
-    t.integer  "wizards"
+    t.integer  "knight"
+    t.integer  "wizard"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tower"
   end
 
   create_table "battalions_shires", force: true do |t|

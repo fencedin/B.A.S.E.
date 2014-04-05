@@ -83,6 +83,9 @@
  <a href="/shires/<%= @shire.slug %>" data-method="delete" rel="nofollow" data-confirm="You're About to MURDER all your citizens Forever!!! Are you sure you can go through with this?!!"><button class ="btn btn-danger">Remove your Shire Forever</button></a>
 </div>
 <div class="col-md-4 que">
-<h3>Event Que</h3>
+
+<h3>Event History <div class="btn-group"><button class="btn btn-danger"><%= begin (@shire.events.last.updated_at+ 10 - (Time.now - @shire.events.last.updated_at)).strftime("%M:%S") rescue "00:00" end %></button></div></h3>
 <hr>
+
+
 </div>
